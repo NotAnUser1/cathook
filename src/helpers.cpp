@@ -1228,6 +1228,7 @@ weaponmode GetWeaponMode(CachedEntity *ent)
     case CL_CLASS(CTFRocketLauncher_AirStrike):
     case CL_CLASS(CTFCannon):
     case CL_CLASS(CTFMechanicalArm):
+    case CL_CLASS(CTFFlameThrower):
         return weaponmode::weapon_projectile;
     case CL_CLASS(CTFJar):
     case CL_CLASS(CTFJarMilk):
@@ -1307,7 +1308,7 @@ bool GetProjectileData(CachedEntity *weapon, float &speed, float &gravity, float
     }
     case CL_CLASS(CTFGrenadeLauncher):
     {
-        rspeed       = 1216.6f;
+        rspeed       = 1217.0f;
         rgrav        = 1.0f;
         rinitial_vel = 200.0f;
         IF_GAME(IsTF2())
@@ -1348,20 +1349,20 @@ bool GetProjectileData(CachedEntity *weapon, float &speed, float &gravity, float
     case CL_CLASS(CTFFlareGun_Revenge): // Detonator
     {
         rspeed = 2000.0f;
-        rgrav  = 0.25f;
+        rgrav  = 0.3f;
         break;
     }
     case CL_CLASS(CTFSyringeGun):
     {
-        rgrav  = 0.2f;
         rspeed = 1000.0f;
+        rgrav  = 0.2f;
         break;
     }
     case CL_CLASS(CTFCrossbow):
     case CL_CLASS(CTFShotgunBuildingRescue):
     {
-        rgrav  = 0.2f;
         rspeed = 2400.0f;
+        rgrav  = 0.2f;
         break;
     }
     case CL_CLASS(CTFDRGPomson):
@@ -1374,6 +1375,11 @@ bool GetProjectileData(CachedEntity *weapon, float &speed, float &gravity, float
     case CL_CLASS(CTFCleaver):
     {
         rspeed = 3000.0f;
+        break;
+    }
+    case CL_CLASS(CTFFlameThrower):
+    {
+        rspeed = 1000.0f;
         break;
     }
     case CL_CLASS(CTFGrapplingHook):
